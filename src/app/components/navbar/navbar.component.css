@@ -1,0 +1,12 @@
+nav a.navbar-nav:hover,
+nav button {
+    cursor: pointer;
+}
+
+div.collapse {
+    margin-top: 15px !important;
+}
+
+a.navbar-brand {
+    font-weight: bold;
+}

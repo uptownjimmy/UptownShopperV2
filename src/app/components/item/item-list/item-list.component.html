@@ -1,0 +1,30 @@
+<ngx-loading [show]="itemService.loading"></ngx-loading>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 mx-auto">
+            <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    (click)="openNewItem()">
+                <i class="fa fa-plus"></i>
+                Create New Item
+            </button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 mx-auto">
+            <ul class="list-group">
+                <li>
+                    <a
+                        class="list-group-item"
+                        (click)="itemListClick($event, item)"
+                        *ngFor="let item of items">
+                        <div class="col-10">{{ item.name }}</div>
+                        <div class="col-2"><i class="fa fa-angle-right"></i></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

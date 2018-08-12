@@ -1,0 +1,21 @@
+<div ngbDropdown class="d-inline-block" style="width: 100% !important;">
+    <button
+            type="button"
+            class="btn btn-outline-secondary full-width"
+            id="dropdownItemType"
+            ngbDropdownToggle>
+        {{selectedItemTypeText}}
+    </button>
+    <div
+            class="dropdown-menu full-width"
+            aria-labelledby="dropdownItemType">
+        <button
+                type="button"
+                class="dropdown-item"
+                *ngFor="let item_Type of item_Types"
+                (click)="onItemClick(item_Type)"
+                [value]="item_Type.key_Text">
+            {{item_Type.key_Text}}
+        </button>
+    </div>
+</div>

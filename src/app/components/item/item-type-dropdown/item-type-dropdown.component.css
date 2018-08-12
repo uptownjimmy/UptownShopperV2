@@ -1,0 +1,13 @@
+button.dropdown-toggle {
+    text-align: left;
+    color: black;
+}
+
+full-width {
+    width: 100% !important;
+}
+
+/*button.dropdown-toggle::after {*/
+    /*text-align: right !important;*/
+    /*margin: 0 .3em 0 8em !important;*/
+/*}*/

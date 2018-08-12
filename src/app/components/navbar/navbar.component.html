@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-faded border-bottom">
+    <a class="navbar-brand mb-0">{{ title }}</a>
+    <button
+        class="navbar-toggler btn-xs"
+        type="button"
+        (click)="isNavbarCollapsed = !isNavbarCollapsed"
+        aria-controls="CollapsingNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="CollapsingNavbar">
+        <div class="navbar-nav mr-auto text-right">
+            <a
+                class="nav-item nav-link"
+                routerLink="/shopping"
+                routerLinkActive="active"
+                (click)="isNavbarCollapsed = !isNavbarCollapsed;
+                linkClicked('Shopping List')">
+                Shopping List
+            </a>
+            <a
+                class="nav-item nav-link"
+                routerLink="/items"
+                routerLinkActive="active"
+                (click)="isNavbarCollapsed = !isNavbarCollapsed;
+                linkClicked('Permanent Items List')">
+                Permanent Items List
+            </a>
+            <a
+                class="nav-item nav-link"
+                routerLink="/stores"
+                routerLinkActive="active"
+                (click)="isNavbarCollapsed = !isNavbarCollapsed;
+                linkClicked('Stores')">
+                Stores
+            </a>
+        </div>
+    </div>
+</nav>
+
+<router-outlet style="margin-top: 170px;"></router-outlet>

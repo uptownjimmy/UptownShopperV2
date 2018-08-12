@@ -1,0 +1,27 @@
+<ngx-loading [show]="itemService.loading"></ngx-loading>
+<div class="container-fluid">
+    <div class="row pt-3">
+        <div class="col-xs-12 mx-auto">
+            <button
+                type="button"
+                class="btn btn-outline-primary"
+                (click)="addOrRemoveItems()">
+                Add/Remove Items
+            </button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 mx-auto">
+            <ul class="list-group">
+                <a
+                    class="list-group-item"
+                    *ngFor="let item of shoppingItems">
+                    <div class="list-group-item-heading ml-2">
+                        {{ item.name }}
+                    </div>
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>
