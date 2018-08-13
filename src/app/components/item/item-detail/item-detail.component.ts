@@ -39,6 +39,7 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
     public popoverMessage = 'Are you sure you want to delete this item?';
     public confirmClicked = false;
     public cancelClicked = false;
+    public isOpen = false;
 
     constructor(
         public activeModal: NgbActiveModal,

@@ -8,6 +8,7 @@ import {LoadingModule, ANIMATION_TYPES} from 'ngx-loading';
 import {ToastrModule} from 'ngx-toastr';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
 import {NavbarModule} from './components/navbar/navbar.module';

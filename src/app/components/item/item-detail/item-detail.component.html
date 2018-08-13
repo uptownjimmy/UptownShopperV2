@@ -1,6 +1,6 @@
 <div class="modal-content">
     <ngx-loading [show]="loading"></ngx-loading>
-    <form [formGroup]="itemDetailForm" (ngSubmit)="formSubmit()">
+    <form [formGroup]="itemDetailForm">
         <div class="modal-header">
             <h3 class="modal-title">{{ modalTitle }}</h3>
             <button
@@ -64,6 +64,7 @@
             <button
                     type="submit"
                     class="btn btn-outline-success"
+                    (click)="formSubmit()"
                     [disabled]="!itemDetailForm.valid">
                 Save
             </button>
@@ -72,8 +73,8 @@
                     mwlConfirmationPopover
                     [popoverTitle]="popoverTitle"
                     [popoverMessage]="popoverMessage"
-                    placement="left"
-                    (confirm)="confirmClicked = true; deleteItem();"
+                    placement="bottom"
+                    (confirm)="confirmClicked = true; deleteItem()"
                     (cancel)="cancelClicked = true"
                     *ngIf="!isNew">
                 Delete
@@ -87,3 +88,4 @@
         </div>
     </form>
 </div>
+

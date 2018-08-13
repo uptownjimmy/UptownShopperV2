@@ -16,13 +16,21 @@
         <div class="col-xs-12 mx-auto">
             <ul class="list-group">
                 <li>
-                    <a
-                        class="list-group-item"
-                        (click)="itemListClick($event, item)"
-                        *ngFor="let item of items">
-                        <div class="col-10">{{ item.name }}</div>
-                        <div class="col-2"><i class="fa fa-angle-right"></i></div>
-                    </a>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <a
+                                class="list-group-item"
+                                (click)="itemListClick($event, item)"
+                                *ngFor="let item of items">
+                                {{ item.name }}
+                                <button
+                                        type="button"
+                                        class="btn btn-outline-secondary btn-sm float-right">
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
