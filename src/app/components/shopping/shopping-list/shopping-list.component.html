@@ -14,13 +14,19 @@
     <div class="row">
         <div class="col-xs-12 mx-auto">
             <ul class="list-group">
-                <a
-                    class="list-group-item"
-                    *ngFor="let item of shoppingItems">
-                    <div class="list-group-item-heading ml-2">
-                        {{ item.name }}
+                <li>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <a
+                                class="list-group-item"
+                                (click)="shoppingItemListClick($event, item)"
+                                *ngFor="let item of shoppingItems">
+                                {{ item.name }}
+                                <i class="fa fa-caret-down float-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </a>
+                </li>
             </ul>
         </div>
     </div>

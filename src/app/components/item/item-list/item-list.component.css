@@ -2,7 +2,7 @@ ul {
     list-style: none;
 }
 
-a.list-group-item:hover {
+.btn, a.list-group-item:hover {
     cursor: pointer;
 }
 
@@ -11,12 +11,8 @@ ul.list-group a {
     width: 300px;
 }
 
-.btn {
-    cursor: pointer;
-}
-
-button.btn-outline-secondary {
-    /*margin-bottom: 25px;*/
+i.fa-pencil-square-o {
+    margin-top: 6px;
 }
 
 div.container-fluid {

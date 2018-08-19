@@ -1,4 +1,8 @@
-a.list-group-item:hover {
+ul {
+    list-style: none;
+}
+
+.btn, a.list-group-item:hover {
     cursor: pointer;
 }
 
@@ -7,10 +11,6 @@ ul.list-group a {
     width: 300px;
 }
 
-.btn {
-    cursor: pointer;
+i.fa-caret-down {
+    margin-top: 6px;
 }
-
-/*div.container-fluid {*/
-    /*padding-top: 50px;*/
-/*}*/

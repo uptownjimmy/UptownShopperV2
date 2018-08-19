@@ -22,7 +22,8 @@ export class ItemService {
 
     public getItems(refresh: boolean = false) {
         this.loading = true;
-        this.http.get<Item[]>(this.getURL).subscribe(
+        const getUrlObservable = this.http.get<Item[]>(this.getURL);
+        getUrlObservable.subscribe(
             response => {
                 this.items = response;
                 this.itemListChanged.next(this.items.slice());
@@ -44,7 +45,8 @@ export class ItemService {
     }
 
     public getItemsSnapshot() {
-        return this.http.get(this.getURL).pipe(map(
+        const getSnapshotObservable = this.http.get(this.getURL);
+        return getSnapshotObservable.pipe(map(
             response => response
             , (err: HttpErrorResponse) => {
                 if (err.error) {
@@ -69,7 +71,8 @@ export class ItemService {
 
         if (!this.items.find((i) => i.name === item.name)) {
             this.loading = true;
-            this.http.post('http://localhost:5000/api/item', item).subscribe(
+            const postUrlObservable = this.http.post('http://localhost:5000/api/item', item);
+            postUrlObservable.subscribe(
                 response => {
                     this.getItems();
                     this.toastr.success('New item created.', 'Success!');
@@ -96,7 +99,8 @@ export class ItemService {
 
     public updateExistingItem(item: Item) {
         this.loading = true;
-        this.http.put('http://localhost:5000/api/item/' + item.id, item).subscribe(
+        const putUrlObservable = this.http.put('http://localhost:5000/api/item/' + item.id, item);
+        putUrlObservable.subscribe(
             response => {
                 this.loading = false;
                 this.itemListChanged.next(this.items.slice());
@@ -121,7 +125,8 @@ export class ItemService {
 
     public deleteItem(item: Item) {
         this.loading = true;
-        this.http.delete('http://localhost:5000/api/item/' + item.id).subscribe(
+        const deleteUrlObservable = this.http.delete('http://localhost:5000/api/item/' + item.id);
+        deleteUrlObservable.subscribe(
             response => {
                 const index: number = this.items.indexOf(item);
                 if (index !== -1) {

@@ -29,7 +29,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
         );
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
@@ -44,5 +45,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
             modalRef.componentInstance.items = this.items;
             modalRef.componentInstance.shoppingItems = this.shoppingItems;
         });
+    }
+
+    private shoppingItemListClick() {
     }
 }
