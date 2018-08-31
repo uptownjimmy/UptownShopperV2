@@ -83,7 +83,7 @@ import {ServicesModule} from './services/services.module';
     providers: [
         {provide: 'itemService', useClass: ItemService},
         {provide: 'shoppingService', useClass: ShoppingService},
-        {provide: 'api', useValue: 'http://localhost:5000/api/'}
+        {provide: 'itemURL', useValue: 'http://localhost:5000/api/item'}
     ],
     entryComponents: [
         ItemDetailComponent,

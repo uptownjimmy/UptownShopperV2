@@ -13,13 +13,10 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
     @Input() modalTitle: string;
     @Input() item: Item;
 
-    public loading = false;
-    public itemDetailForm;
     private name: string = null;
     private item_Type: number = null;
     private active: boolean = null;
     private notes: string = null;
-
     protected item_Types = [
         {
             id: 1,
@@ -34,12 +31,13 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
             key_Text: 'Clothing'
         }
     ];
-
+    public loading = false;
+    public itemDetailForm;
     public popoverTitle = 'Delete Confirmation';
     public popoverMessage = 'Are you sure you want to delete this item?';
     public confirmClicked = false;
     public cancelClicked = false;
-    public isOpen = false;
+    // public isOpen = false;
 
     constructor(
         public activeModal: NgbActiveModal,

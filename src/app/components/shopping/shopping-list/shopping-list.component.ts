@@ -3,6 +3,7 @@ import {Item} from '../../item/item.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddItemsComponent} from '../add-shopping-items/add-shopping-items.component';
 import {Subscription} from 'rxjs';
+import {ItemDetailComponent} from '../../item/item-detail/item-detail.component';
 
 @Component({
     selector: 'us-shopping-list',
@@ -10,9 +11,9 @@ import {Subscription} from 'rxjs';
     styleUrls: ['./shopping-list.component.css'],
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
+    private subscription: Subscription;
     public items: Item[] = [];
     public shoppingItems: Item[] = [];
-    private subscription: Subscription;
 
     constructor(
         @Inject('itemService') public itemService,
@@ -29,8 +30,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
         );
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
@@ -47,6 +47,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
         });
     }
 
-    private shoppingItemListClick() {
+    private shoppingItemListClick($event, item) {
+
     }
 }

@@ -7,7 +7,6 @@ import {Injectable, Inject} from '@angular/core';
 
 @Injectable()
 export class ItemService {
-    private getURL;
     public items: Item[] = [];
     public itemListChanged = new Subject<Item[]>();
     private loading = false;
@@ -15,14 +14,12 @@ export class ItemService {
     constructor(
         private http: HttpClient,
         private toastr: ToastrService,
-        @Inject('api') private api
-    ) {
-        this.getURL = api + 'item';
-    }
+        @Inject('itemURL') private itemURL
+    ) {}
 
     public getItems(refresh: boolean = false) {
         this.loading = true;
-        const getUrlObservable = this.http.get<Item[]>(this.getURL);
+        const getUrlObservable = this.http.get<Item[]>(this.itemURL);
         getUrlObservable.subscribe(
             response => {
                 this.items = response;
@@ -45,19 +42,20 @@ export class ItemService {
     }
 
     public getItemsSnapshot() {
-        const getSnapshotObservable = this.http.get(this.getURL);
-        return getSnapshotObservable.pipe(map(
-            response => response
-            , (err: HttpErrorResponse) => {
-                if (err.error) {
-                    console.log('Client error occurred in ItemService.getItemsSnapshot(): ', err.error.message);
-                } else {
-                    console.log(
-                        'API error occurred in ItemService.getItemsSnapshot(): ' + err.status
-                    );
+        const getSnapshotObservable = this.http.get(this.itemURL);
+        return getSnapshotObservable.pipe(
+            map(response => response
+                , (err: HttpErrorResponse) => {
+                    if (err.error) {
+                        console.log('Client error occurred in ItemService.getItemsSnapshot(): ', err.error.message);
+                    } else {
+                        console.log(
+                            'API error occurred in ItemService.getItemsSnapshot(): ' + err.status
+                        );
+                    }
                 }
-            }
-        ));
+            )
+        );
     }
 
     public createNewItem(formValues: Item) {
@@ -71,7 +69,7 @@ export class ItemService {
 
         if (!this.items.find((i) => i.name === item.name)) {
             this.loading = true;
-            const postUrlObservable = this.http.post('http://localhost:5000/api/item', item);
+            const postUrlObservable = this.http.post(this.itemURL, item);
             postUrlObservable.subscribe(
                 response => {
                     this.getItems();
@@ -99,7 +97,7 @@ export class ItemService {
 
     public updateExistingItem(item: Item) {
         this.loading = true;
-        const putUrlObservable = this.http.put('http://localhost:5000/api/item/' + item.id, item);
+        const putUrlObservable = this.http.put(this.itemURL + '/' + item.id, item);
         putUrlObservable.subscribe(
             response => {
                 this.loading = false;
@@ -125,7 +123,7 @@ export class ItemService {
 
     public deleteItem(item: Item) {
         this.loading = true;
-        const deleteUrlObservable = this.http.delete('http://localhost:5000/api/item/' + item.id);
+        const deleteUrlObservable = this.http.delete(this.itemURL + '/' + item.id);
         deleteUrlObservable.subscribe(
             response => {
                 const index: number = this.items.indexOf(item);
