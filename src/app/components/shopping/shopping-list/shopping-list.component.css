@@ -14,3 +14,9 @@ ul.list-group a {
 i.fa-caret-down {
     margin-top: 6px;
 }
+
+#button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -15,6 +15,7 @@ import {NavbarModule} from './components/navbar/navbar.module';
 import {AppComponent} from './app.component';
 import {ItemListComponent} from './components/item/item-list/item-list.component';
 import {ItemDetailComponent} from './components/item/item-detail/item-detail.component';
+import {ShoppingItemOptionsComponent} from './components/shopping/shopping-item-options/shopping-item-options.component';
 import {StoreListComponent} from './components/store/store-list/store-list.component';
 import {StoreDetailComponent} from './components/store/store-detail/store-detail.component';
 import {ShoppingListComponent} from './components/shopping/shopping-list/shopping-list.component';
@@ -32,6 +33,7 @@ import {ServicesModule} from './services/services.module';
         AppComponent,
         ItemListComponent,
         ItemDetailComponent,
+        ShoppingItemOptionsComponent,
         StoreListComponent,
         StoreDetailComponent,
         ShoppingListComponent,
@@ -87,7 +89,8 @@ import {ServicesModule} from './services/services.module';
     ],
     entryComponents: [
         ItemDetailComponent,
-        AddItemsComponent],
+        AddItemsComponent,
+        ShoppingItemOptionsComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
             this.title = 'Uptown Shopper';
         } else {
             this.mobile = true;
-            this.title = 'Shopping List';
+            this.title = 'Shopping';
             this.setTitle(this.title);
         }
 

@@ -4,6 +4,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddItemsComponent} from '../add-shopping-items/add-shopping-items.component';
 import {Subscription} from 'rxjs';
 import {ItemDetailComponent} from '../../item/item-detail/item-detail.component';
+import {ShoppingItemOptionsComponent} from '../shopping-item-options/shopping-item-options.component';
 
 @Component({
     selector: 'us-shopping-list',
@@ -12,6 +13,20 @@ import {ItemDetailComponent} from '../../item/item-detail/item-detail.component'
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
+    protected item_Types = [
+        {
+            id: 1,
+            key_Text: 'Grocery'
+        },
+        {
+            id: 2,
+            key_Text: 'Hardware'
+        },
+        {
+            id: 3,
+            key_Text: 'Clothing'
+        }
+    ];
     public items: Item[] = [];
     public shoppingItems: Item[] = [];
 
@@ -48,6 +63,15 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     }
 
     private shoppingItemListClick($event, item) {
+        setTimeout(() => {
+            const modalRef = this.modalService.open(ShoppingItemOptionsComponent);
+            modalRef.componentInstance.item = item;
 
+            modalRef.result.then((result) => {
+                console.log(result);
+            }).catch((error) => {
+                console.log(error);
+            });
+        });
     }
 }

@@ -85,7 +85,7 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
     }
 
     private deleteItem() {
-        console.log('Deleting item # ' + this.item);
+        console.log('Deleting item # ' + JSON.stringify(this.item));
         this.loading = true;
         if (this.item) {
             this.itemService.deleteItem(this.item);

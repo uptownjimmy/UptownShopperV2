@@ -74,7 +74,7 @@ export class ItemService {
                 response => {
                     this.getItems();
                     this.toastr.success('New item created.', 'Success!');
-                    console.log('New item created: ' + response);
+                    console.log('New item created: ' + JSON.stringify(response));
                 },
                 (err: HttpErrorResponse) => {
                     if (err.error) {
