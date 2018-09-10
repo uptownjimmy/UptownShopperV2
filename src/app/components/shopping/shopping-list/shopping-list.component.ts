@@ -3,8 +3,9 @@ import {Item} from '../../item/item.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddItemsComponent} from '../add-shopping-items/add-shopping-items.component';
 import {Subscription} from 'rxjs';
-import {ItemDetailComponent} from '../../item/item-detail/item-detail.component';
 import {ShoppingItemOptionsComponent} from '../shopping-item-options/shopping-item-options.component';
+import {StoreService} from '../../../services/store.service';
+import {Store} from '../../store/store.model';
 
 @Component({
     selector: 'us-shopping-list',
@@ -29,10 +30,13 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     ];
     public items: Item[] = [];
     public shoppingItems: Item[] = [];
+    public stores: Store[];
+    public selectedStore = 'Filter by Store';
 
     constructor(
         @Inject('itemService') public itemService,
-        private modalService: NgbModal
+        private modalService: NgbModal,
+        private storeService: StoreService
     ) {
         this.itemService.getItems();
         this.subscription = this.itemService.itemListChanged.subscribe(
@@ -45,7 +49,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
         );
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.stores = this.storeService.getStores();
+    }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
@@ -73,5 +79,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
                 console.log(error);
             });
         });
+    }
+
+    private filterByStore(storeName) {
+        this.selectedStore = storeName;
     }
 }

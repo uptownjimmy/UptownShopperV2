@@ -2,11 +2,22 @@
 <div class="container-fluid">
     <div id="button-group" class="btn-group pt-3">
         <div class="btn-group" ngbDropdown>
-            <button class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Select Store</button>
-            <div class="dropdown-menu" ngbDropdownMenu>
-                <button class="dropdown-item">Action - 1</button>
-                <button class="dropdown-item">Another Action</button>
-                <button class="dropdown-item">Something else is here</button>
+            <button
+                class="btn btn-outline-secondary"
+                id="filterByStoreDropdown"
+                ngbDropdownToggle>
+                {{ selectedStore }}
+            </button>
+            <div
+                class="dropdown-menu"
+                aria-labelledby="filterByStoreDropdown"
+                ngbDropdownMenu>
+                <button
+                    class="dropdown-item"
+                    *ngFor="let store of stores"
+                    (click)="filterByStore(store.name)">
+                    {{ store.name }}
+                </button>
             </div>
         </div>
         <button

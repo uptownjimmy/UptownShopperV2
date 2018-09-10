@@ -2,7 +2,7 @@ ul {
     list-style: none;
 }
 
-.btn, a.list-group-item:hover {
+.btn, a.list-group-item:hover, div[ngbDropdown] {
     cursor: pointer;
 }
 

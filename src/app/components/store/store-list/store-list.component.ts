@@ -17,6 +17,6 @@ export class StoreListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.stores = this.storeService.getItems();
+        this.stores = this.storeService.getStores();
     }
 }
