@@ -17,19 +17,16 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
     private item_Type: number = null;
     private active: boolean = null;
     private notes: string = null;
-    protected item_Types = [
-        {
-            id: 1,
-            key_Text: 'Grocery'
-        },
-        {
-            id: 2,
-            key_Text: 'Hardware'
-        },
-        {
-            id: 3,
-            key_Text: 'Clothing'
-        }
+    private stores = [
+        {name: 'Kroger', active: false},
+        {name: 'Lowe\'s', active: false},
+        {name: 'Publix', active: false},
+        {name: 'Trader Joe\'s', active: false}
+    ];
+    private item_Types = [
+        {id: 1, name: 'Grocery'},
+        {id: 2, name: 'Hardware'},
+        {id: 3, name: 'Clothing'}
     ];
     public loading = false;
     public itemDetailForm;
@@ -51,6 +48,13 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
             this.item_Type = this.item.item_Type;
             this.active = this.item.active;
             this.notes = this.item.notes;
+            this.item.store_Names.forEach(store_Name => {
+                this.stores.forEach(store => {
+                    if (store.name === store_Name) {
+                        store.active = true;
+                    }
+                });
+            });
         }
 
         this.itemDetailForm = new FormGroup({

@@ -82,6 +82,6 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     }
 
     private filterByStore(storeName) {
-        this.selectedStore = storeName;
+        this.shoppingItems = this.shoppingItems.filter(item => item.store === storeName);
     }
 }

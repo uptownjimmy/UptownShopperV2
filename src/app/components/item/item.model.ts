@@ -7,6 +7,7 @@ export class Item {
     public item_Type: number;
     public active: boolean;
     public notes: string;
+    public store_Names: string[];
     public id: number;
     public created_By: string;
     public modified_By: string;
@@ -16,14 +17,16 @@ export class Item {
         item_Type: number,
         active: boolean,
         notes: string,
+        store_Names: string[],
         id?: number,
         created_By?: string,
-        modified_By?: string
+        modified_By?: string,
     ) {
         this.name = name;
         this.item_Type = item_Type;
         this.active = active;
         this.notes = notes;
+        this.store_Names = store_Names;
         this.id = id;
         this.created_By = created_By;
         this.modified_By = modified_By;

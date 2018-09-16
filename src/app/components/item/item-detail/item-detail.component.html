@@ -36,7 +36,7 @@
                                 <option
                                         *ngFor="let item_Type of item_Types"
                                         [ngValue]="item_Type.id">
-                                    {{item_Type.key_Text}}
+                                    {{item_Type.name}}
                                 </option>
                             </select>
                             <span *ngIf="!itemDetailForm.get('item_Type').valid && itemDetailForm.get('item_Type').touched"
@@ -57,6 +57,8 @@
                         </textarea>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
