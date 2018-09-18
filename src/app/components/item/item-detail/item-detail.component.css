@@ -1,8 +1,9 @@
+/* Custom adaptations for existing elements in (ng-)bootstrap. */
 .btn {
-    cursor: pointer;
-    width: 100px;
-}
+  cursor: pointer;
+  width: 100px; }
 
 input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
-    border: 1px solid red;
-}
+  border: 1px solid red; }
+
+/*# sourceMappingURL=item-detail.component.css.map */

@@ -37,7 +37,7 @@
                             <a
                                 class="list-group-item"
                                 (click)="shoppingItemListClick($event, item)"
-                                *ngFor="let item of shoppingItems">
+                                *ngFor="let item of filteredShoppingItems">
                                 {{ item.name }}
                                 <i class="fa fa-caret-down float-right"></i>
                             </a>

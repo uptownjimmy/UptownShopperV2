@@ -15,7 +15,7 @@
         <div class="modal-body">
 
             <div class="container-fluid">
-                <div class="p-4">
+                <div class="p-2">
 
                     <div class="form-group row">
                         <label class="col-xs-12 col-sm-3" for="name">Name</label>
@@ -58,8 +58,22 @@
                         </div>
                     </div>
 
-
                 </div>
+
+                <div class='text-center'>
+                    <div class="btn-group btn-group-toggle">
+                        <label class="btn btn-outline-primary" ngbButtonLabel usNgbCheckboxButtonLabel>
+                            <input type="checkbox" formControlName="kroger" ngbButton>Kroger
+                        </label>
+                        <label class="btn btn-outline-primary" ngbButtonLabel usNgbCheckboxButtonLabel>
+                            <input type="checkbox" formControlName="traderJoe" ngbButton>TJ's
+                        </label>
+                        <label class="btn btn-outline-primary" ngbButtonLabel usNgbCheckboxButtonLabel>
+                            <input type="checkbox" formControlName="lowe" ngbButton>Lowe's
+                        </label>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="modal-footer">

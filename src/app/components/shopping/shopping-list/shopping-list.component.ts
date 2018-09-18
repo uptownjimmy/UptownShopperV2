@@ -30,6 +30,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     ];
     public items: Item[] = [];
     public shoppingItems: Item[] = [];
+    public filteredShoppingItems: Item[] = [];
     public stores: Store[];
     public selectedStore = 'Filter by Store';
 
@@ -45,6 +46,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
                 this.shoppingItems = this.items.filter(
                     item => item.active === true
                 );
+                this.filteredShoppingItems = this.shoppingItems;
+                if (this.selectedStore !== 'Filter by Store') {
+                    this.filterByStore(this.selectedStore);
+                }
             }
         );
     }
@@ -65,6 +70,13 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
             });
             modalRef.componentInstance.items = this.items;
             modalRef.componentInstance.shoppingItems = this.shoppingItems;
+
+            modalRef.result.then((result) => {
+                // this.filteredShoppingItems = this.shoppingItems;
+                this.filterByStore(this.selectedStore);
+            }).catch((error) => {
+                console.log(error);
+            });
         });
     }
 
@@ -82,6 +94,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     }
 
     private filterByStore(storeName) {
-        this.shoppingItems = this.shoppingItems.filter(item => item.store === storeName);
+        this.selectedStore = storeName;
+        this.filteredShoppingItems = this.shoppingItems.filter(item => item.store_Names.find(name => name === storeName));
     }
 }

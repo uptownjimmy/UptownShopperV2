@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,iEAAiE;AAgBjE,IAAK;EACD,MAAM,EAAE,OAAO;EACf,KAAK,EAAE,KAAK;;AAGhB,yDAA0D;EACtD,MAAM,EAAE,aAAa",
+"sources": ["item-detail.component.scss"],
+"names": [],
+"file": "item-detail.component.css"
+}

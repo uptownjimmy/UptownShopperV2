@@ -6,7 +6,7 @@ import {Item} from '../item.model';
 @Component({
     selector: 'us-item-detail',
     templateUrl: './item-detail.component.html',
-    styleUrls: ['./item-detail.component.css']
+    styleUrls: ['./item-detail.component.scss']
 })
 export class ItemDetailComponent implements OnInit, AfterViewInit {
     @Input() isNew: boolean;
@@ -23,7 +23,7 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
         {name: 'Publix', active: false},
         {name: 'Trader Joe\'s', active: false}
     ];
-    private item_Types = [
+    protected item_Types = [
         {id: 1, name: 'Grocery'},
         {id: 2, name: 'Hardware'},
         {id: 3, name: 'Clothing'}
@@ -34,7 +34,6 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
     public popoverMessage = 'Are you sure you want to delete this item?';
     public confirmClicked = false;
     public cancelClicked = false;
-    // public isOpen = false;
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -56,12 +55,14 @@ export class ItemDetailComponent implements OnInit, AfterViewInit {
                 });
             });
         }
-
         this.itemDetailForm = new FormGroup({
             'name': new FormControl(this.name, Validators.required),
             'item_Type': new FormControl(this.item_Type, Validators.required),
             'active': new FormControl(this.active),
-            'notes': new FormControl(this.notes)
+            'notes': new FormControl(this.notes),
+            'kroger': new FormControl(this.stores[0].active),
+            'traderJoe': new FormControl(this.stores[1].active),
+            'lowe': new FormControl(this.stores[3].active)
         });
     }
 

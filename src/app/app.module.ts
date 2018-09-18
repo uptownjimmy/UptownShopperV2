@@ -26,6 +26,7 @@ import {ItemTypeDropdownComponent} from './components/item/item-type-dropdown/it
 import {ItemService} from './services/item.service';
 import {ShoppingService} from './services/shopping.service';
 import {ServicesModule} from './services/services.module';
+import { NgbCheckboxButtonLabelDirective } from './ngb-checkbox-button-label.directive';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {ServicesModule} from './services/services.module';
         StoreDetailComponent,
         ShoppingListComponent,
         AddItemsComponent,
-        ItemTypeDropdownComponent
+        ItemTypeDropdownComponent,
+        NgbCheckboxButtonLabelDirective
     ],
     imports: [
         BrowserModule,
